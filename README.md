@@ -15,6 +15,11 @@ Terraform can automate provisioning of the infrastructure itself
 ## Basics
 
 HCL (HashiCorp Configuration Language) - terraform syntax  
+Always run `terraform init` first - initializes the provider plugins
+Run `terraform plan` to see what changes will be made  
+Then run `terraform apply`  to execute plan  
+-^ same as running `terraform plan -out out.terraform ; terraform apply out.terraform ; rm out.terraform`  (do this if you want to be extra careful)  
+Run `terraform destroy` to tear down the infrastructure
 
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course).  
