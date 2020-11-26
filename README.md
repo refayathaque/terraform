@@ -21,6 +21,13 @@ Then run `terraform apply`  to execute plan
 -^ same as running `terraform plan -out out.terraform ; terraform apply out.terraform ; rm out.terraform`  (do this if you want to be extra careful)  
 Run `terraform destroy` to tear down the infrastructure
 
+## Variable types
+Simple - `String` / `Number` / `Bool`  
+Complex - `List(type)` / `Set(type)` / `Map(type)` / `Object({<ATTR NAME> = <TYPE>, ... })` / `Tuple([<TYPE>, ... ])`  
+Set is like a list, but it doesn't keep the order you put it in, and can only contain unique values  
+-A list that has [5, 1, 1, 2] becomes [1, 2, 5] in a set  
+Object is like a map, but each element can have a different type  
+Tuple is like a list, but each element can have a different type
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
