@@ -1,6 +1,6 @@
-resource "aws_key_pair" "refayat-key" {
+resource "aws_key_pair" "mykey" {
   key_name = "mykey"
-  public_key = "ssh-rsa my-public-key"
+  public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
 resource "aws_instance" "example" {
@@ -11,17 +11,17 @@ resource "aws_instance" "example" {
 
 provisioner "file" {
   source = "script.sh"
-  destination = "/opt/script.sh"
-  connection {
-    user = var.instance_username
-    # password = var.instance_password
-    private_key = file(var.path_to_private_key)
-  }
+  destination = "/tmp/script.sh"
 }
 
 provisioner "remote-exec" {
   inline = [
-    "chmod + x /opt/script.sh",
-    "/opt/script.sh arguments"
+    "chmod + x /tmp/script.sh",
+    "sudo /tmp/script.sh"
   ]
 }
+
+connection {
+    user = var.INSTANCE_USERNAME
+    private_key = file(var.PATH_TO_PRIVATE_KEY)
+  }

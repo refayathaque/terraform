@@ -18,7 +18,19 @@ variable "AMIS" {
 }
 # http://cloud-images.ubuntu.com/locator/ec2/
 
-variable "instance_username" {
+variable "INSTANCE_USERNAME" {
   type = string
-  default = "ec2-user"
+  default = "ubuntu"
 }
+
+variable "PATH_TO_PUBLIC_KEY" {
+  type = string
+  default = "mykey.pub"
+}
+
+variable "PATH_TO_PRIVATE_KEY" {
+  type = string
+  default = "mykey"
+}
+
+# to create keys run `ssh-keygen -f mykey`
