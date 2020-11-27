@@ -16,5 +16,9 @@ variable "AMIS" {
     eu-west-1 = "ami-048309a44dad514df" 
   }
 }
-
 # http://cloud-images.ubuntu.com/locator/ec2/
+
+variable "instance_username" {
+  type = string
+  default = "ec2-user"
+}
