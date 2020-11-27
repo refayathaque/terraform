@@ -28,6 +28,8 @@ Set is like a list, but it doesn't keep the order you put it in, and can only co
 -A list that has [5, 1, 1, 2] becomes [1, 2, 5] in a set  
 Object is like a map, but each element can have a different type  
 Tuple is like a list, but each element can have a different type
+## Software provisioning
+You can upload files using your `.tf` script into instances and also run shell scripts, but in order for you to have access to the created instances you need to first configure your security groups (under VPC) and change the inbound rules to your own IP (all TCP and [your IP]/32)
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
