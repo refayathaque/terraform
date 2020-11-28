@@ -29,7 +29,12 @@ Set is like a list, but it doesn't keep the order you put it in, and can only co
 Object is like a map, but each element can have a different type  
 Tuple is like a list, but each element can have a different type
 ## Software provisioning
-You can upload files using your `.tf` script into instances and also run shell scripts, but in order for you to have access to the created instances you need to first configure your security groups (under VPC) and change the inbound rules to your own IP (all TCP and [your IP]/32)
+You can upload files using your `.tf` script into instances and also run shell scripts, but in order for you to have access to the created instances you need to first configure your security groups (under VPC) and change the inbound rules to your own IP (all TCP and **your IP**/32)
+## Output
+Keeps attributes of all resources created, and they can be queried and outputted  
+-E.g., `aws_instance` resource has attribute `public_ip`  
+Attributes can be used in shell scripts, useful in starting automation scripts after infrastructure provisioning, populating the IP addresses in an Ansible host file, or run a script (with attributes as arguments) that can map resource names to IP addresses  
+
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
