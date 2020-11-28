@@ -1,4 +1,5 @@
 terraform.tfvars
 mykey*
+private_ips.txt
 .*
 !/.gitignore
