@@ -45,6 +45,12 @@ Using a remote store (`backend.tf` with s3) for the terraform state will ensure 
 ## Datasources
 Provide dynamic information from the cloud provider that can be used as inputs in terraform  
 -E.g., list of AWS AMIs, AZs (Availabilty Zones), IP ranges (CIDR blocks), etc.
+## Modules
+Keep your terraform code better organized and reinforce DRY (Don't repeat yourself)  
+-Reuse parts of your code for other projects or if you're managing multiple regions, e.g., to set up a VPC in AWS  
+Use 3rd party modules like ones from GitHub  
+In a module folder you'll just have regular terraform files, e.g., `vars.tf`, `output.tf`, `cluster.tf`, etc.
+
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
