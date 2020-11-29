@@ -42,6 +42,9 @@ E.g., you terminate the instance you provisioned with terraform manually in the 
 Version controlling `terraform.tfstate` gives you the history of it  
 Using a remote store (`backend.tf` with s3) for the terraform state will ensure that you always have the latest version of the state  
 -Advantage of ^: avoids having to version control `terraform.tfstate`
+## Datasources
+Provide dynamic information from the cloud provider that can be used as inputs in terraform  
+-E.g., list of AWS AMIs, AZs (Availabilty Zones), IP ranges (CIDR blocks), etc.
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
