@@ -27,9 +27,11 @@ Complex - `List(type)` / `Set(type)` / `Map(type)` / `Object({<ATTR NAME> = <TYP
 Set is like a list, but it doesn't keep the order you put it in, and can only contain unique values  
 -A list that has [5, 1, 1, 2] becomes [1, 2, 5] in a set  
 Object is like a map, but each element can have a different type  
-Tuple is like a list, but each element can have a different type
+Tuple is like a list, but each element can have a different type  
+
 ## Software provisioning
-You can upload files using your `.tf` script into instances and also run shell scripts, but in order for you to have access to the created instances you need to first configure your security groups (under VPC) and change the inbound rules to your own IP (all TCP and **your IP**/32)
+You can upload files using your `.tf` script into instances and also run shell scripts, but in order for you to have access to the created instances you need to first configure your security groups (under VPC) and change the inbound rules to your own IP (all TCP and **your IP**/32)  
+
 ## Output
 Keeps attributes of all resources created, and they can be queried and outputted  
 -E.g., `aws_instance` resource has attribute `public_ip`  
@@ -41,15 +43,21 @@ If the remote state changes and you run `terraform apply` again, terraform will 
 E.g., you terminate the instance you provisioned with terraform manually in the console, and then you run `terraform apply`, terraform will provision the instance again  
 Version controlling `terraform.tfstate` gives you the history of it  
 Using a remote store (`backend.tf` with s3) for the terraform state will ensure that you always have the latest version of the state  
--Advantage of ^: avoids having to version control `terraform.tfstate`
-## Datasources
+-Advantage of ^: avoids having to version control `terraform.tfstate`  
+
+## Data sources
 Provide dynamic information from the cloud provider that can be used as inputs in terraform  
--E.g., list of AWS AMIs, AZs (Availabilty Zones), IP ranges (CIDR blocks), etc.
+-E.g., list of AWS AMIs, AZs (Availability Zones), IP ranges (CIDR blocks), etc.  
+
 ## Modules
 Keep your terraform code better organized and reinforce DRY (Don't repeat yourself)  
 -Reuse parts of your code for other projects or if you're managing multiple regions, e.g., to set up a VPC in AWS  
 Use 3rd party modules like ones from GitHub  
-In a module folder you'll just have regular terraform files, e.g., `vars.tf`, `output.tf`, `cluster.tf`, etc.
+In a module folder you'll just have regular terraform files, e.g., `vars.tf`, `output.tf`, `cluster.tf`, etc.  
+
+### Naming convention
+Resources - underscore - e.g., `aws_security_groups`
+Resource *names* - dash - e.g., `allow-ssh`
 
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
