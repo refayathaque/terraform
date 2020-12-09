@@ -8,6 +8,7 @@ resource "aws_instance" "example" {
   # security group to launch the instance in
   # vpc_security_group_ids = [aws_security_group.allow-ssh.id]
 
+  # since we're not launching this instance in a VPC (which would also launch this instance in a AZ-specific subnet), and since our EBS volume requires us to specify an AZ for it, we need specify an AZ here. AZs for instances are optional, but we need it in this instance because we are attaching an extra volume to it.
   availability_zone = "${var.AWS_REGION}a"
 
   # public SSH key
