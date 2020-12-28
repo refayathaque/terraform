@@ -59,6 +59,15 @@ In a module folder you'll just have regular terraform files, e.g., `vars.tf`, `o
 Resources - underscore - e.g., `aws_security_groups`
 Resource *names* - dash - e.g., `allow-ssh`
 
+## Packer
+*Alternative to this is using Docker*  
+CLI tool that can build AWS AMIs based on templates  
+Instead of installing software *after* booting up an instance, you can create a custom AMI using Packer with all the necessary software on it *pre-installed*  
+Run packer with the `.json` file that holds the configuration to create your custom AMI, e.g., `packer build -machine-readable packer.json`
+Can speed up boot times of instances because you don't have to: first install the default image, second install software, etc.  
+Common approach when you run a horizontally scaled app layer or a cluster of something  
+![diagram](./Screen Shot 2020-12-27 at 10.22.21 PM.png)
+
 ### Useful links:
 [Repo for Udemy course - "Learn DevOps: Infrastructure Automation w/ Terraform"](https://github.com/wardviaene/terraform-course)  
 [Good intro](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)  
