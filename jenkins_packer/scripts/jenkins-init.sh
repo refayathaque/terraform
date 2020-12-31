@@ -32,12 +32,12 @@ apt-get update
 # install dependencies
 apt-get install -y python3 openjdk-11-jdk awscli
 # install jenkins
-apt-get install -y jenkins=${JENKINS_VERSION} unzip
+apt-get install -y jenkins=2.204.5 unzip
 
 # install terraform
-wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-&& unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
-&& rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+wget -q https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip \
+&& unzip -o terraform_0.12.23_linux_amd64.zip -d /usr/local/bin \
+&& rm terraform_0.12.23_linux_amd64.zip
 
 # install packer
 cd /usr/local/bin
@@ -45,5 +45,5 @@ wget -q https://releases.hashicorp.com/packer/0.10.2/packer_0.10.2_linux_amd64.z
 unzip packer_0.10.2_linux_amd64.zip
 # clean up
 apt-get clean
-rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+rm terraform_0.12.23_linux_amd64.zip
 rm packer_0.10.2_linux_amd64.zip
